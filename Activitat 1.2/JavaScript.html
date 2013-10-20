@@ -5,13 +5,66 @@
     <meta charset="utf-8" />
     <title>JavaScript</title>
     <style type="text/css">
-
+        *
+        {
+            background-color: lightgray;
+        }
+        h1
+        {
+            text-align: center;
+            text-decoration: underline;
+        }
+        thead
+        {
+            background-color: blue;
+            color: white;
+        }
     </style>
 </head>
 <body>
-    <header>JavaScript</header>
+    <h1>JavaScript</h1>
     <table>
-        <thead></thead>
+        <thead>
+            <tr>
+                <th>Concepte</th>
+                <th>Codi font</th>
+                <th>Resultat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Variables</td>
+                <td>
+                    <pre>
+                    <p>Clica el botó per a realitzar l'operació</p>
+                    <button onclick="sumaVariables()">Suma</button>
+                    <p id="P1"></p>
+                    <script>
+                        function sumaVariables() {
+                            var x = 3;
+                            var y = 1;
+                            var resultat = x + y;
+                            document.getElementById("variables").innerHTML = resultat;
+                        }
+                    </script>
+                    </pre>
+                </td>
+                <td>
+                    <p>Clica el botó per a realitzar l'operació</p>
+                    <button onclick="sumaVariables()">Suma</button>
+                    <p id="variables"></p>
+                    <script>
+                        function sumaVariables()
+                        {
+                            var x = 3;
+                            var y = 1;
+                            var resultat = x + y;
+                            document.getElementById("variables").innerHTML = resultat;
+                        }
+                    </script>
+                </td>
+            </tr>
+        </tbody>
     </table>
 </body>
 </html>
