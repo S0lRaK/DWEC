@@ -7,18 +7,43 @@
     <style type="text/css">
         *
         {
-            background-color: lightgray;
+            background-color:lightgray;
+            font-family:sans-serif;
         }
+        
         h1
         {
-            text-align: center;
-            text-decoration: underline;
+            text-align:center;
+            text-decoration:underline;
         }
+        
+        table, th, td
+        {
+            border:solid;
+        }
+        
         thead
         {
-            background-color: blue;
-            color: white;
+            color:white;
+            background-color:darkblue;  /* No lo hace */
         }
+
+        td
+        {
+            padding:5px;
+            margin:5px;
+        }
+        
+       .concepte, .resultat
+        {
+            text-align:center;
+        }
+
+        pre
+        {
+
+        }
+
     </style>
 </head>
 <body>
@@ -33,35 +58,70 @@
         </thead>
         <tbody>
             <tr>
-                <td>Variables</td>
+                <td class="concepte">Variables</td>
                 <td>
                     <pre>
-                    <p>Clica el botó per a realitzar l'operació</p>
-                    <button onclick="sumaVariables()">Suma</button>
-                    <p id="P1"></p>
-                    <script>
+                    &lt;p&gt;Clica el botó per a realitzar l'operació amb variables LOCALS&lt;/p&gt;
+                    &lt;button onclick="sumaVariables()"&gt;Suma&lt;/button&gt;
+                    &lt;p id="variablesLocals"&gt;&lt;/p&gt;
+                    &lt;script&gt;
                         function sumaVariables() {
                             var x = 3;
                             var y = 1;
                             var resultat = x + y;
-                            document.getElementById("variables").innerHTML = resultat;
+                            document.getElementById("variablesLocals").innerHTML = x + " + " + y + " = " + resultat;
                         }
-                    </script>
+                    &lt;/script&gt;
+                    &lt;p&gt;Clica el botó per a realitzar l'operació amb variables GLOBALS&lt;/p&gt;
+                    &lt;button onclick="restaVariables()"&gt;Resta&lt;/button&gt;
+                    &lt;p id="variablesGlobals"&gt;&lt;/p&gt;
+                    &lt;script&gt;
+                        var z = 4;
+                        var w = 2;
+                        function restaVariables()
+                        {
+                            var resultat = z - w;
+                            document.getElementById("variablesGlobals").innerHTML = z + " - " + w + " = " + resultat;
+                        }
+                    &lt;/script&gt;
                     </pre>
                 </td>
-                <td>
-                    <p>Clica el botó per a realitzar l'operació</p>
+                <td class="resultat">
+                    <p>Clica el botó per a realitzar l'operació amb variables LOCALS</p>
                     <button onclick="sumaVariables()">Suma</button>
-                    <p id="variables"></p>
+                    <p id="variablesLocals"></p>
                     <script>
                         function sumaVariables()
                         {
                             var x = 3;
                             var y = 1;
                             var resultat = x + y;
-                            document.getElementById("variables").innerHTML = resultat;
+                            document.getElementById("variablesLocals").innerHTML = x + " + " + y + " = " + resultat;
                         }
                     </script>
+                    <p>Clica el botó per a realitzar l'operació amb variables GLOBALS</p>
+                    <button onclick="restaVariables()">Resta</button>
+                    <p id="variablesGlobals"></p>
+                    <script>
+                        var z = 4;
+                        var w = 2;
+                        function restaVariables()
+                        {
+                            var resultat = z - w;
+                            document.getElementById("variablesGlobals").innerHTML = z + " - " + w + " = " + resultat;
+                        }
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td class="concepte">Data Types</td>
+                <td>
+                    <pre>
+
+                    </pre>
+                </td>
+                <td class="resultat">
+
                 </td>
             </tr>
         </tbody>
