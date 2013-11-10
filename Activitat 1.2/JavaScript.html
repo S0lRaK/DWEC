@@ -76,8 +76,7 @@
                     &lt;button onclick="restaVariables()"&gt;Resta&lt;/button&gt;
                     &lt;p id="variablesGlobals"&gt;&lt;/p&gt;
                     &lt;script&gt;
-                        var z = 4;
-                        var w = 2;
+                        var z = 4, w = 2;
                         function restaVariables()
                         {
                             var resultat = z - w;
@@ -103,8 +102,7 @@
                     <button onclick="restaVariables()">Resta</button>
                     <p id="variablesGlobals"></p>
                     <script>
-                        var z = 4;
-                        var w = 2;
+                        var z = 4, w = 2;
                         function restaVariables()
                         {
                             var resultat = z - w;
@@ -121,7 +119,21 @@
                     </pre>
                 </td>
                 <td class="resultat">
-
+                    <script>
+                        var variable;
+                        document.write(variable + "<br />");
+                        var string = "Sóc una 'bonica' cadena de carácters", string2 = 'Sóc una cadena de carácters "lletja"';
+                        document.write(string + " | " + string2 + "<br />");
+                        var number = 0.26, number2 = 10;
+                        document.write(number + " | " + number2 + "<br />");
+                        var boolean = true, boolean2 = false;
+                        document.write(boolean + " OR " + boolean2);
+                        var array = [1, "array"], index;
+                            for (index = 0; index < array.length; index++)
+                                document.write(array[index] + " ");
+                        var object = { ID: 1, Function: "Example" };
+                    </script>
+                    
                 </td>
             </tr>
         </tbody>
