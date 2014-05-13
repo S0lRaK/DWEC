@@ -2,12 +2,18 @@
 <html>
 <head>
 	<title>Flickr</title>
+	<!-- jQuery -->
 	<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
 	<script type="text/javascript" src="flickr.js"></script>
 </head>
 <body>
-	<button id="loadPhotos" type="button">Cargar fotos</button>
-	<div id="flickrPhotos">
-	</div>
+	<input type="text" id="inputId" value="User ID">
+	<button id="loadPhotos" class="btn btn-primary" type="button">Cargar fotos</button>
+	<div id="flickrPhotos"></div>
+	<div id="error"></div>
 </body>
 </html>
