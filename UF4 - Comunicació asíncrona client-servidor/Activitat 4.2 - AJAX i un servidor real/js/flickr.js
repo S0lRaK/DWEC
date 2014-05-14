@@ -17,7 +17,7 @@ $(document).ready(function()
 				dataType: 'json',
 				complete: function(jqXHR, textStatus)
 				{
-					$('#loadPhotos').html('Cargar de nuevo'); // Canvia el texto mostrado en el botón
+					$('#loadPhotos').html('Cargar fotos'); // Canvia el texto mostrado en el botón
 					$('#loadPhotos').removeAttr('disabled'); // Vuelve a activar el botón
 				},
 				error: function(jqXHR, textStatus, errorThrown)
@@ -26,16 +26,18 @@ $(document).ready(function()
 	            },
 	            success: function(data)
 	            {
-	            	if (userId)
+	            	console.log(data); // Para mostrar el objeto JSON recibido
+	            	if (userId) // Si sólo se ha introducido la ID del usuario a buscar...
 	            	{
 	            		$('#photos').prepend('<p>ID usuario: ' + userId + '</p>'); // data.items.entry.author.name
 	            		$.each(data.items, function(i, item)
 	            		{
 	            			//$('#flickrPhotos').append(imageHTML(item));
 	            			$('#flickrPhotos').append('<img src="' + data.items[i].media.m + '"/>');
+	            			$('#flickrPhotos').append('<p>Etiquetas: ' + data.items[i].tags + '</p>');
 	            		});	
 	            	}
-	            	else
+	            	else // Si sólo se ha introducido el TAG a buscar
 	            	{
 	            		$.each(data.items, function(i, item)
 	            		{
@@ -43,6 +45,7 @@ $(document).ready(function()
 	            			$('#flickrPhotos').append('<img src="' + data.items[i].media.m + '"/>');
 	            			$('#flickrPhotos').append('<p>ID autor: ' + data.items[i].author_id + '</p>');
 	            			$('#flickrPhotos').append('<p>Etiquetas: ' + data.items[i].tags + '</p>');
+	            			$('#flickrPhotos').append('<hr />');
 	            		});
 	            	}
 	            }

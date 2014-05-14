@@ -8,15 +8,16 @@
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-	<script type="text/javascript" src="flickr.js"></script>
+	<!-- Archivos propios -->
+	<link rel="stylesheet" type="text/css" href="css/flickr.css">
+	<script type="text/javascript" src="js/flickr.js"></script>
 </head>
 <body>
 	<section id="search">
-		<label for="inputId">ID usuario</label>
-		<input type="text" id="inputId" placeholder="ID de usuario a buscar">
-		<label for="inputTag">Etiqueta de foto</label>
-		<input type="text" id="inputTag" placeholder="Etiqueta a buscar">
+		<!-- <label for="inputId">ID usuario</label> -->
+		<input type="text" id="inputId" placeholder="ID usuario" name="ID" size="12" maxlength="12" autocomplete="on">
+		<!-- <label for="inputTag">Etiqueta de foto</label> -->
+		<input type="text" id="inputTag" placeholder="Etiquetas" name="tag" autocomplete="on">
 		<button id="loadPhotos" class="btn btn-primary" type="button">Cargar fotos</button>
 	</section>
 	<section id="photos">

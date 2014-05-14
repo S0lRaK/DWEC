@@ -1,0 +1,22 @@
+#search
+{
+	height: 180px;
+	background-size: 100% 100%;
+	background-image: url('../img/Flickr_header.jpg');
+	text-align: center;
+}
+
+#inputId, #inputTag, #loadPhotos
+{
+	margin-top: 75px;
+}
+
+#loadPhotos
+{
+	vertical-align: baseline;
+}
+
+#photos
+{
+	text-align: center;
+}
