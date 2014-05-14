@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Flickr</title>
+	<meta charset='ISO-8859-1'>
 	<!-- jQuery -->
 	<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
 	<!-- Bootstrap -->
@@ -11,9 +12,16 @@
 	<script type="text/javascript" src="flickr.js"></script>
 </head>
 <body>
-	<input type="text" id="inputId" value="User ID">
-	<button id="loadPhotos" class="btn btn-primary" type="button">Cargar fotos</button>
-	<div id="flickrPhotos"></div>
-	<div id="error"></div>
+	<section id="search">
+		<label for="inputId">ID usuario</label>
+		<input type="text" id="inputId" placeholder="ID de usuario a buscar">
+		<label for="inputTag">Etiqueta de foto</label>
+		<input type="text" id="inputTag" placeholder="Etiqueta a buscar">
+		<button id="loadPhotos" class="btn btn-primary" type="button">Cargar fotos</button>
+	</section>
+	<section id="photos">
+		<div id="flickrPhotos"></div>
+	</section>
+		<div id="error"></div>
 </body>
 </html>
