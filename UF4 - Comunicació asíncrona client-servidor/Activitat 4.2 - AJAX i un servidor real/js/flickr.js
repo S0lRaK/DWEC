@@ -4,12 +4,17 @@ $(document).ready(function()
 	{
 		var userId = $('#inputId').val();
 		var photoTag = $('#inputTag').val();
-		if (userId || photoTag)	// Si se ha introducido algún valor...
+		// Si se ha introducido algún valor...
+		if (userId || photoTag)
 		{
-			$('#error').empty(); // Vacía el contenido del div contenedor del mensaje de error
-			$('#flickrPhotos').empty(); // Vacía el contenido del div contenedor de fotos
-			$(this).attr('disabled','disabled'); // Desabilita el botón para evitar enviar múltiples peticiones simultaneas
-			$(this).html('Cargando'); // Canvia el texto mostrado en el botón
+			// Vacía el contenido del div contenedor del mensaje de error
+			$('#error').empty();
+			// Vacía el contenido del div contenedor de fotos
+			$('#flickrPhotos').empty();
+			// Desabilita el botón para evitar enviar múltiples peticiones simultaneas
+			$(this).attr('disabled','disabled');
+			// Canvia el texto mostrado en el botón
+			$(this).html('Cargando');
 			$.ajax(
 			{
 				// Dirección a la que se realiza la petición, devuelta con formato 'JSON', los filtros de 'ID' y 'TAG', y la especificación de 'CALLBACK'
@@ -17,37 +22,42 @@ $(document).ready(function()
 				dataType: 'json',
 				complete: function(jqXHR, textStatus)
 				{
-					$('#loadPhotos').html('Cargar fotos'); // Canvia el texto mostrado en el botón
-					$('#loadPhotos').removeAttr('disabled'); // Vuelve a activar el botón
+					// Canvia el texto mostrado en el botón
+					$('#loadPhotos').html('Buscar fotos');
+					// Vuelve a activar el botón
+					$('#loadPhotos').removeAttr('disabled');
 				},
 				error: function(jqXHR, textStatus, errorThrown)
 				{
-	                $('#error').text('Error: ' + jqXHR.status + ' - ' + errorThrown); // status = código de error
+	                // status = código de error
+	                $('#error').text('Error: ' + jqXHR.status + ' - ' + errorThrown);
 	            },
-	            success: function(data)
+	            success: function(jsonFlickr)
 	            {
-	            	console.log(data); // Para mostrar el objeto JSON recibido
-	            	if (userId) // Si sólo se ha introducido la ID del usuario a buscar...
+	            	// Muestra el JSON recibido por consola
+	            	console.log(jsonFlickr);
+	            	$.each(jsonFlickr.items, function(i, item)
 	            	{
-	            		$('#photos').prepend('<p>ID usuario: ' + userId + '</p>'); // data.items.entry.author.name
-	            		$.each(data.items, function(i, item)
+	            		//$('#flickrPhotos').append(imageHTML(item));
+	            		$('#flickrPhotos').append('<img src="' + item.media.m + '"/>');
+	            		// Si sólo se ha introducido el TAG a buscar...
+	            		if (!userId)
 	            		{
-	            			//$('#flickrPhotos').append(imageHTML(item));
-	            			$('#flickrPhotos').append('<img src="' + data.items[i].media.m + '"/>');
-	            			$('#flickrPhotos').append('<p>Etiquetas: ' + data.items[i].tags + '</p>');
-	            		});	
-	            	}
-	            	else // Si sólo se ha introducido el TAG a buscar
+	            			$('#flickrPhotos').append('<p><strong>ID autor:</strong> ' + item.author_id + '</p>');
+	            		};
+	            		$('#flickrPhotos').append('<p><strong>Etiquetas:</strong> ' + item.tags + '</p>');
+	            		$('#flickrPhotos').append('<hr />');
+	            	});	
+	            	// Si sólo se ha introducido la ID del usuario a buscar...
+	            	if (userId)
 	            	{
-	            		$.each(data.items, function(i, item)
-	            		{
-	            			//$('#flickrPhotos').append(imageHTML(item));
-	            			$('#flickrPhotos').append('<img src="' + data.items[i].media.m + '"/>');
-	            			$('#flickrPhotos').append('<p>ID autor: ' + data.items[i].author_id + '</p>');
-	            			$('#flickrPhotos').append('<p>Etiquetas: ' + data.items[i].tags + '</p>');
-	            			$('#flickrPhotos').append('<hr />');
-	            		});
+	            		// jsonFlickr.items.entry.author.name
+	            		$('#photos').prepend('<p><strong>ID usuario:</strong> ' + userId + '</p>');
 	            	}
+	            	// $.ajax(
+	            	// {
+	            		
+	            	// })
 	            }
 			});
 		}
