@@ -1,0 +1,34 @@
+{
+    "animacion": {
+        "titulo": "Animaciones",
+        "tiempo": 60,
+        "animacionActual": 0,
+        "cambiarIdAnimacion": "$(function(){animacion.animacion.animacionActual++;if(animacion.animacion.animacionActual == 4){animacion.animacion.animacionActual = 0;}});",
+        "animaciones": [
+            {
+                "id": 0,
+                "titulo": "Figuras Geometricas",
+                "tiempo": 15,
+                "nombreFuncion": "animacion0()"
+            },
+            {
+                "id": 1,
+                "titulo": "Imagenes",
+                "tiempo": 15,
+                "nombreFuncion": "animacion1()"
+            },
+            {
+                "id": 2,
+                "titulo": "Ventanas",
+                "tiempo": 15,
+                "nombreFuncion": "animacion2()"
+            },
+            {
+                "id": 3,
+                "titulo": "Eventos",
+                "tiempo": 15,
+                "nombreFuncion": "animacion3()"
+            }
+        ]
+    }
+}
